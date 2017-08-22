@@ -8,21 +8,21 @@ export default {
   namespace: 'policy',
   state: {
     frameNo: null,
-    policyInfo: null,
+    carInfo: {},
   },
   reducers: {
     save(state, { payload }) {
       return { ...state, frameNo: payload.frameNo.value };
     },
-    setPolicyInfo(state, { payload: { policyInfo } }) {
-      return { ...state, policyInfo };
+    setCarInfo(state, { payload: { carInfo } }) {
+      return { ...state, carInfo };
     },
   },
   effects: {
     *getPolicyInfo(action, { call, put, select }) {
       const frameNo = yield select(state => state.policy.frameNo);
-      const rsp = yield call(PolicyService.getPolicyInfo, frameNo);
-      yield put({ type: 'setPolicyInfo', payload: { policyInfo: rsp.ResponseMessage } });
+      const data = yield call(PolicyService.getPolicyInfo, frameNo);
+      yield put({ type: 'setCarInfo', payload: { carInfo: data.carModels[0] } });
     },
   },
   subscriptions: {

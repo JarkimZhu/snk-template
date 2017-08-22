@@ -1,12 +1,9 @@
-/**
- * Created by zhujiaqi on 2017/4/1.
- */
 import React from 'react';
 import { connect } from 'dva';
-import { List, InputItem, Button, View, Flex, Text, WhiteSpace } from 'antd-mobile';
+import { List, InputItem, Button, View, Flex, Text, WhiteSpace, Icon } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
-class LoginPage extends React.Component {
+class LoginView extends React.Component {
 
   login = () => {
     this.props.dispatch({
@@ -23,15 +20,18 @@ class LoginPage extends React.Component {
         </Flex>
         <WhiteSpace size="lg" />
         <Flex justify="center">
-          <Text>Sinosafe 华安保险</Text>
+          <Text>Let's play !</Text>
+        </Flex>
+        <Flex justify="center">
+          <Icon type={require('../../assets/svgs/xbox.svg')} size='lg' style={{ fill:'#ef473a' }}/>
         </Flex>
         <WhiteSpace size="lg" />
         <List>
           <List.Item>
-            <InputItem placeholder="请输入手机号" clear {...getFieldProps('mobile')} />
+            <InputItem placeholder="请输入手机号" clear {...getFieldProps('mobile') } />
           </List.Item>
           <List.Item extra={<Button type="primary" size="small" inline>获取验证码</Button>}>
-            <InputItem placeholder="请输入验证码" clear {...getFieldProps('vCode')} />
+            <InputItem placeholder="请输入验证码" clear {...getFieldProps('vCode') } />
           </List.Item>
           <List.Item>
             <Button size="large" onClick={this.login}>立即登录</Button>
@@ -40,7 +40,6 @@ class LoginPage extends React.Component {
       </View>
     );
   }
-
 }
 
 export default connect()(createForm({
@@ -49,5 +48,5 @@ export default connect()(createForm({
       type: 'user/save',
       payload: fields,
     });
-  } })(LoginPage));
-
+  }
+})(LoginView));

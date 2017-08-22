@@ -18,12 +18,20 @@ class PolicyPage extends React.Component {
           <List>
             <InputItem placeholder="车架号" clear {...getFieldProps('frameNo')} />
             <List.Item>
-              <Button size="large" onClick={this.submit}>查询保单</Button>
+              <Button size="large" type="primary" onClick={this.submit}>查询保单</Button>
             </List.Item>
           </List>
-          <Text>
-            {this.props.policy.policyInfo}
-          </Text>
+          <List>
+            <List.Item extra={this.props.policy.carInfo.carName}>
+              <Text>车型</Text>
+            </List.Item>
+            <List.Item extra={this.props.policy.carInfo.carCode}>
+              <Text>车型编码</Text>
+            </List.Item>
+            <List.Item extra={this.props.policy.carInfo.seatCount}>
+              <Text>座位数</Text>
+            </List.Item>
+          </List>
         </WingBlank>
       </View>
     );

@@ -3,7 +3,6 @@
  */
 export default class UserService {
   static login(user) {
-    console.log(user);
     return Promise.resolve('hehe');
   }
 }

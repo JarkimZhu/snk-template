@@ -1,5 +1,5 @@
 const themeStyle = require('./styles').themeStyle;
-const Pixel = require('./Pixel');
+const { Pixel } = require('snk-libs');
 
 const theme = {
   'color-text-base': themeStyle.color_text_base,

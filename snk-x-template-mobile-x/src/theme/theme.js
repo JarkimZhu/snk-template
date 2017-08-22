@@ -1,5 +1,5 @@
 const themeStyle = require('./styles').themeStyle;
-const Pixel = require('./Pixel');
+const { Pixel } = require('snk-libs');
 
 module.exports = Object.assign(themeStyle, {
   font_size_heading: Pixel.toDip(themeStyle.font_size_heading),

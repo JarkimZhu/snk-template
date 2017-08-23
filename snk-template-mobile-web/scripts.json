@@ -1,0 +1,8 @@
+{
+    "test": "jest",
+    "start": "roadhog server",
+    "build": "roadhog build",
+    "build-dev": "NODE_ENV=development roadhog build",
+    "lint": "eslint --ext .js src test",
+    "precommit": "npm run lint"
+}
